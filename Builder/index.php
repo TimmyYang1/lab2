@@ -5,22 +5,17 @@ use Builder;
 class mailn{
 
    public function runBuilder(){
-       $contactManager = new ContactManager();
+       
+    $dayReportBuilder = new DayReportBuilder("Влад");
+    $monthreportBuilder = new MonthReportBuilder("Владислав");
 
-       $phoneContact = $contactManager->createNewPhoneContact()
-            ->setName("User1")
-            ->setSurname("User1")
-            ->setPhone("123456789")
-            ->build();
+    $reportBuilderDirector = new ReportBuilderDirector();
 
-        $emmailContact = $contactManager->createNewEmailContact()
-            ->setName("user2")
-            ->setSurname("User2")
-            ->setEmail("user2@user.us")
-            ->build();
+    $dayReport = $reportBuilderDirector->createReport( $dayReportBuilder);
+    $monthReport = $reportBuilderDirector->createReport( $monthreportBuilder);
 
-        var_dump($phoneContact);
-        var_dump($emmailContact);
+    var_dump($monthReport);
+    var_dump($dayReport);
    }
 
    
