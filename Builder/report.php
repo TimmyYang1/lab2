@@ -31,6 +31,10 @@ class Report
     {
         return $this->title;
     }
+    public function getBody()
+    {
+        return $this->body;
+    }
 
     
 }
